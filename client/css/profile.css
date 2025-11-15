@@ -3,17 +3,25 @@
    ============================================ */
 
 :root {
-  --primary: #0066cc;
-  --primary-dark: #0052a3;
+  --primary: #e74c3c; /* Sửa thành MÀU ĐỎ */
+  --primary-dark: #c0392b; /* Đỏ đậm hơn */
   --danger: #d9534f;
   --danger-dark: #c9302c;
 
-  --text: #333;
-  --text-light: #666;
-  --border: #e0e0e0;
-  --bg: #f8f9fa;
+  --text: #ffffff; /* Sửa thành MÀU TRẮNG */
+  --text-light: #aaaaaa; /* Trắng xám */
+  --border: #333333; /* Viền tối */
+  --bg: #222222; /* Nền phụ tối */
   --radius: 14px;
-  --shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* THÊM MỚI: Đảm bảo body có nền đen */
+body {
+  background: #121212;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
 }
 
 /* ===============================
@@ -21,7 +29,7 @@
 =============================== */
 
 .header {
-  background: white;
+  background: #1f1f1f; /* Nền header tối */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
@@ -95,7 +103,7 @@
   width: 26px;
   height: 3px;
   border-radius: 2px;
-  background: #333;
+  background: var(--text); /* Sửa thành màu trắng */
 }
 
 /* Mobile menu */
@@ -110,7 +118,7 @@
     width: 100%;
     left: 0;
     flex-direction: column;
-    background: white;
+    background: #1f1f1f;
     padding: 1rem 0;
 
     transform: translateY(-150%);
@@ -133,7 +141,7 @@
   .nav-menu a {
     width: 100%;
     padding: 1rem 2rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border);
     font-size: 1.1rem;
   }
 
@@ -145,6 +153,9 @@
 /* ===============================
             PROFILE GRID
 =============================== */
+.main-content {
+  padding-top: 2rem;
+}
 
 .profile-grid {
   display: grid;
@@ -175,18 +186,20 @@
 =============================== */
 
 .profile-info {
-  background: white;
+  background: #1f1f1f; /* Nền card tối */
   border-radius: var(--radius);
   padding: 2rem;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  align-self: start;
 }
 
 .info-item {
   display: flex;
   justify-content: space-between;
   padding: 0.9rem 0;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px dashed #444; /* Viền mờ tối */
+  flex-wrap: wrap;
 }
 
 .info-item:last-child {
@@ -196,10 +209,12 @@
 .label {
   color: var(--text-light);
   font-weight: 500;
+  margin-right: 1rem;
 }
 
 .value {
   font-weight: 600;
+  word-break: break-all;
 }
 
 /* ===============================
@@ -211,9 +226,9 @@
   justify-content: center;
   gap: 1rem;
   margin-top: 1.2rem;
+  flex-wrap: wrap;
 }
 
-/* Style chung cho nút */
 .profile-actions button {
   padding: 0.8rem 1.6rem;
   border: none;
@@ -228,7 +243,7 @@
 
 /* NÚT CHỈNH SỬA */
 .btn-outline {
-  background: white;
+  background: transparent; /* Nền trong suốt */
   color: var(--primary);
   border: 2px solid var(--primary);
 }
@@ -236,7 +251,7 @@
 .btn-outline:hover {
   background: var(--primary);
   color: white;
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.35);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.35);
   transform: translateY(-2px);
 }
 
@@ -253,7 +268,6 @@
   transform: translateY(-2px);
 }
 
-/* Hiệu ứng khi nhấn */
 .profile-actions button:active {
   transform: scale(0.94);
 }
@@ -263,11 +277,11 @@
 =============================== */
 
 .profile-history {
-  background: white;
+  background: #1f1f1f; /* Nền card tối */
   border-radius: var(--radius);
   padding: 2rem;
   border: 1px solid var(--border);
-  max-height: 500px;
+  min-height: 400px;
   overflow-y: auto;
   box-shadow: var(--shadow);
 }
@@ -289,21 +303,50 @@
 
 /* Item lịch sử */
 .booking-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
 }
 
 .booking-item {
-  background: #f8f9fa;
-  padding: 1rem;
+  background: var(--bg); /* Nền item tối */
+  padding: 1.2rem;
   border-radius: 12px;
-  border-left: 4px solid var(--primary);
+  border-left: 5px solid var(--primary);
   transition: 0.3s;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 1rem;
+  align-items: center;
 }
 
 .booking-item:hover {
-  background: #e9f5ff;
+  background: #2a2a2a;
+  transform: translateX(5px);
+}
+
+.booking-service {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.1rem;
+  grid-column: 1 / 2;
+}
+.booking-date {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  grid-column: 1 / 2;
+}
+
+.booking-status {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  justify-self: end;
+}
+
+.no-data {
+  color: var(--text-light);
+  text-align: center;
+  padding: 3rem 0;
+  font-size: 1.1rem;
 }
 
 /* ===============================
@@ -320,28 +363,19 @@
   letter-spacing: 0.3px;
 }
 
-/* Đang chờ */
 .status-pending {
   background: #fff3cd;
   color: #856404;
-  border: 1px solid #ffecb5;
 }
-
-/* Đã xác nhận */
 .status-confirmed {
   background: #d4edda;
   color: #155724;
-  border: 1px solid #c3e6cb;
 }
-
-/* Đã huỷ */
 .status-cancelled {
   background: #f8d7da;
   color: #721c24;
-  border: 1px solid #f5c6cb;
 }
 
-/* Hover nhẹ (không cần cũng được) */
 .booking-status:hover {
   filter: brightness(1.05);
   transform: scale(1.02);
@@ -358,5 +392,31 @@
 
   .profile-history {
     max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-grid {
+    padding: 1rem;
+  }
+  .profile-info,
+  .profile-history {
+    padding: 1.5rem;
+  }
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .value {
+    margin-top: 0.25rem;
+  }
+  .booking-item {
+    grid-template-columns: 1fr;
+  }
+  .booking-status {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    justify-self: start;
+    margin-top: 0.5rem;
   }
 }

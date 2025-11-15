@@ -11,30 +11,30 @@
 }
 
 :root {
-  --primary: #0066cc;
-  --primary-dark: #0052a3;
-  --text: #333;
-  --text-light: #666;
-  --border: #e0e0e0;
-  --bg: #f8f9fa;
+  --primary: #e74c3c; /* Sửa thành MÀU ĐỎ */
+  --primary-dark: #c0392b; /* Đỏ đậm hơn */
+  --text: #ffffff; /* Sửa thành MÀU TRẮNG */
+  --text-light: #aaaaaa; /* Trắng xám */
+  --border: #333333; /* Viền tối */
+  --bg: #222222; /* Nền phụ tối */
   --error: #dc3545;
   --success: #28a745;
   --radius: 14px;
-  --shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
 html,
 body {
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #121212; /* Sửa thành MÀU ĐEN */
   color: var(--text);
   line-height: 1.6;
 }
 
 /* HEADER & NAV */
 .header {
-  background: white;
+  background: #1f1f1f; /* Nền đen cho header */
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -100,7 +100,7 @@ body {
 .nav-toggle span {
   width: 25px;
   height: 3px;
-  background: #333;
+  background: var(--text); /* Sửa thành màu trắng */
   border-radius: 2px;
   transition: 0.3s;
 }
@@ -116,7 +116,7 @@ body {
     top: 70px;
     left: 0;
     width: 100%;
-    background: white;
+    background: #1f1f1f;
     flex-direction: column;
     padding: 1rem 0;
     box-shadow: var(--shadow);
@@ -136,7 +136,7 @@ body {
   .nav-menu a {
     padding: 1rem 2rem;
     font-size: 1.1rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border);
   }
 
   .nav-menu a:last-child {
@@ -156,8 +156,8 @@ body {
 
 .auth-container {
   width: 100%;
-  max-width: 500px; /* Tăng width cho form ngang */
-  background: white;
+  max-width: 500px;
+  background: #1f1f1f; /* Nền container */
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -240,7 +240,7 @@ body {
   margin-bottom: 1.6rem;
   font-size: 1.7rem;
   font-weight: 600;
-  color: #222;
+  color: var(--text); /* Sửa thành màu trắng */
 }
 
 /* FORM ĐĂNG NHẬP (DỌC) */
@@ -271,15 +271,16 @@ body {
   border: 1.5px solid var(--border);
   border-radius: 10px;
   font-size: 1rem;
-  background: #fafafa;
+  background: #333333; /* Nền input */
+  color: var(--text); /* Chữ trong input */
   transition: all 0.3s;
 }
 
 .form-group input:focus {
   outline: none;
   border-color: var(--primary);
-  background: white;
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+  background: #444444;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
 }
 
 .error-message {
@@ -347,5 +348,5 @@ body {
 .btn-primary:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.3);
+  box-shadow: 0 6px 16px rgba(231, 76, 60, 0.3);
 }

@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dịch vụ Sửa xe & Rửa xe tại nhà - Trang chủ</title>
     <link rel="stylesheet" href="../css/index.css" />
-  </head>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    </head>
   <body>
-    <!-- Header Navigation -->
     <header class="header">
       <nav class="navbar">
         <div class="container">
@@ -34,44 +38,41 @@
       </nav>
     </header>
 
-    <!-- HERO SLIDER -->
     <section class="hero">
       <div class="hero-slider" id="heroSlider">
-        <!-- Slide 1 -->
         <div
           class="hero-slide"
-          style="background-image: url('images/slide1.jpg')"
+          style="background-image: url('images/wash.jpg')"
         >
           <div class="hero-content">
-            <h2>Rửa xe chuyên nghiệp tại nhà</h2>
+            <h2>Rửa xe chuyên nghiệp ngay tại nhà</h2>
             <p>
-              Đội ngũ thợ lành nghề, dụng cụ hiện đại, đến tận nơi chỉ trong 30
-              phút
+              Chúng tôi có đội ngũ thợ lành nghề, với dụng cụ hiện đại, sẽ đến tận nơi của bạn chỉ trong vòng 30
+              phút!!!
             </p>
             <a href="booking.html" class="btn btn-primary">Đặt lịch ngay</a>
           </div>
         </div>
-        <!-- Slide 2 -->
         <div
           class="hero-slide"
-          style="background-image: url('images/slide2.jpg')"
+          style="background-image: url('images/repair.jpg')"
         >
           <div class="hero-content">
             <h2>Sửa chữa xe lưu động 24/7</h2>
             <p>
-              Khắc phục sự cố nhanh chóng: thay lốp, nổ máy, kiểm tra điện...
+              Khắc phục sự cố xe của bạn một cách nhanh chóng: thay lốp, nổ máy, kiểm tra điện...
+              Liên hệ ngay với chúng tôi! 1900-xxxx
             </p>
             <a href="booking.html" class="btn btn-primary">Gọi cứu hộ</a>
           </div>
         </div>
-        <!-- Slide 3 -->
         <div
           class="hero-slide"
-          style="background-image: url('images/slide3.jpg')"
+          style="background-image: url('images/maintenance.jpg')"
         >
           <div class="hero-content">
             <h2>Bảo dưỡng định kỳ - Giá tốt</h2>
-            <p>Thay dầu, lọc gió, kiểm tra phanh – Tiết kiệm đến 30%</p>
+            <p>Thay dầu, lọc gió, kiểm tra phanh – Tiết kiệm đến 30% chi phí</p>
             <a href="services.html" class="btn btn-primary"
               >Xem gói bảo dưỡng</a
             >
@@ -79,60 +80,61 @@
         </div>
       </div>
 
-      <!-- Controls -->
-      <button class="slider-arrow prev" id="prevBtn">Previous</button>
-      <button class="slider-arrow next" id="nextBtn">Next</button>
+      <button class="slider-arrow prev" id="prevBtn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="slider-arrow next" id="nextBtn">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
       <div class="slider-controls" id="sliderDots"></div>
     </section>
 
-    <!-- Features Section -->
     <section class="features">
       <div class="container">
-        <h2 class="section-title">Tại sao chọn chúng tôi?</h2>
+        <h2 class="section-title">Tại sao bạn nên chọn dịch vụ của chúng tôi?</h2>
         <div class="features-grid">
           <div class="feature-card">
-            <div class="feature-icon">House</div>
+            <div class="feature-icon">🏠</div>
             <h3>Phục vụ tại nhà</h3>
-            <p>Không cần đưa xe đến garage, chúng tôi đến tận nơi</p>
+            <p>Bạn không cần đưa xe đến garage, chúng tôi sẽ đến tận nơi bạn</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">Lightning</div>
+            <div class="feature-icon">⚡️</div>
             <h3>Nhanh chóng</h3>
-            <p>Thời gian phục vụ nhanh, tiết kiệm thời gian của bạn</p>
+            <p>Thời gian sửa chữa nhanh, tiết kiệm thời gian của bạn</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">Money</div>
+            <div class="feature-icon">💰</div>
             <h3>Giá cả hợp lý</h3>
-            <p>Giá cả minh bạch, không phát sinh chi phí</p>
+            <p>Giá cả minh bạch, không phát sinh thêm chi phí</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">Tools</div>
+            <div class="feature-icon">🛠️</div>
             <h3>Chuyên nghiệp</h3>
-            <p>Đội ngũ kỹ thuật viên có kinh nghiệm, tận tâm</p>
+            <p>Đội ngũ kỹ thuật viên có kinh nghiệm lâu năm, tận tâm với nghề</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Preview -->
     <section class="services-preview">
       <div class="container">
         <h2 class="section-title">Dịch vụ của chúng tôi</h2>
         <div class="services-grid">
           <div class="service-card">
             <h3>Rửa xe</h3>
-            <p>Rửa xe ngoài và trong, làm sạch kỹ lưỡng</p>
-            <span class="price">Từ 100.000đ</span>
+            <p>Rửa xe bên ngoài và cả sâu bên trong, làm sạch kỹ đến từng ngóc ngách</p>
+            <span class="price">Giá chỉ từ 99.000đ</span>
           </div>
           <div class="service-card">
             <h3>Sửa chữa cơ bản</h3>
-            <p>Thay dầu, lọc gió, kiểm tra hệ thống</p>
-            <span class="price">Từ 200.000đ</span>
+            <p>Thay dầu, lọc gió, kiểm tra hệ thống máy, phanh</p>
+            <span class="price">Chỉ từ 199.000đ</span>
           </div>
           <div class="service-card">
             <h3>Bảo dưỡng định kỳ</h3>
-            <p>Bảo dưỡng toàn diện theo khuyến nghị</p>
-            <span class="price">Từ 500.000đ</span>
+            <p>Bảo dưỡng toàn diện xe theo khuyến nghị</p>
+            <span class="price">Chỉ từ 499.000đ</span>
           </div>
         </div>
         <div class="text-center">
@@ -143,15 +145,14 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p>© 2024 AutoCare. Tất cả quyền được bảo lưu.</p>
+        <p>© 2025 AutoCare. Tất cả quyền được bảo lưu.</p>
         <p>Hotline: 1900-xxxx | Email: support@autocare.vn</p>
       </div>
     </footer>
 
-    <!-- JavaScript -->
+    <script src="../js/config.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/index.js"></script>
   </body>

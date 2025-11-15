@@ -9,15 +9,15 @@
 }
 
 :root {
-  --primary: #0066cc;
-  --primary-dark: #0052a3;
-  --secondary: #ffffff;
-  --text: #333333;
-  --text-light: #666666;
-  --border: #e0e0e0;
-  --bg-light: #f8f9fa;
+  --primary: #e74c3c; /* Sửa thành MÀU ĐỎ */
+  --primary-dark: #c0392b; /* Đỏ đậm hơn */
+  --secondary: #121212; /* Sửa thành MÀU ĐEN */
+  --text: #ffffff; /* Sửa thành MÀU TRẮNG */
+  --text-light: #aaaaaa; /* Trắng xám */
+  --border: #333333; /* Viền tối */
+  --bg-light: #222222; /* Nền phụ tối */
   --radius: 16px;
-  --shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   --gap: 1.5rem;
 }
@@ -38,7 +38,7 @@ body {
 
 /* Header */
 .header {
-  background: var(--secondary);
+  background: #1f1f1f; /* Nền header tối */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -79,7 +79,7 @@ body {
 .nav-menu a:hover,
 .nav-menu a.active {
   color: var(--primary);
-  background: #e3f2fd;
+  background: var(--bg-light);
 }
 
 .nav-toggle {
@@ -169,12 +169,12 @@ body {
 }
 
 .card-front {
-  background: var(--secondary);
+  background: #1f1f1f; /* Nền card tối */
   border: 1px solid var(--border);
 }
 
 .card-back {
-  background: linear-gradient(135deg, #0066cc, #3385d6);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: white;
   transform: rotateY(180deg);
   border: 1px solid var(--primary);
@@ -288,7 +288,7 @@ body {
 .cta-section {
   text-align: center;
   padding: 3.5rem 2rem;
-  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  background: var(--bg-light); /* Nền tối */
   border-radius: var(--radius);
   margin: 3.5rem 0;
   box-shadow: var(--shadow);
@@ -318,18 +318,18 @@ body {
   text-decoration: none;
   font-size: 1.05rem;
   transition: var(--transition);
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
 }
 
 .btn:hover {
   background: var(--primary-dark);
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
+  box-shadow: 0 6px 16px rgba(231, 76, 60, 0.4);
 }
 
 /* Footer */
 .footer {
-  background: var(--text);
+  background: #000000; /* Footer đen tuyền */
   color: white;
   text-align: center;
   padding: 2.5rem 0;
@@ -351,7 +351,7 @@ body {
     left: -100%;
     top: 70px;
     flex-direction: column;
-    background: white;
+    background: #1f1f1f;
     width: 100%;
     text-align: center;
     transition: 0.3s;
@@ -405,62 +405,4 @@ body {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
-}
-/* ============================================
-   CARD FLIP 180° - HOÀN CHỈNH, MƯỢT MÀ
-   ============================================ */
-
-/* BẮT BUỘC: perspective cho card */
-.service-card {
-  perspective: 1200px; /* Tăng độ sâu 3D */
-  height: 360px;
-}
-
-/* Card lật */
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d; /* BẮT BUỘC */
-  cursor: pointer;
-}
-
-/* Hover → lật 180° */
-.service-card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-/* Mặt trước & mặt sau */
-.card-front,
-.card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* Ẩn mặt sau khi lật */
-  border-radius: var(--radius);
-  padding: 1.8rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-shadow: var(--shadow);
-  top: 0;
-  left: 0;
-}
-
-/* Mặt trước */
-.card-front {
-  background: var(--secondary);
-  border: 1px solid var(--border);
-  z-index: 2;
-}
-
-/* Mặt sau - lật 180° */
-.card-back {
-  background: linear-gradient(135deg, #0066cc, #3385d6);
-  color: white;
-  transform: rotateY(180deg); /* Quay sẵn 180° */
-  z-index: 1;
 }
