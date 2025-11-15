@@ -1,5 +1,4 @@
-// js/booking.js - HOÀN CHỈNH 100% - ĐÃ SỬA LỖI HIỂN THỊ KHI ĐĂNG NHẬP
-const API_URL = "http://localhost:5000/api";
+// js/booking.js
 
 document.addEventListener("DOMContentLoaded", function () {
   const user = JSON.parse(localStorage.getItem("currentUser"));

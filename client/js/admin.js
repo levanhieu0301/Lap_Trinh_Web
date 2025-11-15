@@ -1,5 +1,4 @@
 // js/admin.js
-const API_URL = "http://localhost:5000/api";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const token = localStorage.getItem("token");

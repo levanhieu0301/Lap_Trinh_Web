@@ -2,8 +2,6 @@
    PROFILE.JS - LẤY LỊCH SỬ TỪ DATABASE (MySQL)
    ============================================ */
 
-const API_URL = "http://localhost:5000/api";
-
 document.addEventListener("DOMContentLoaded", async function () {
   const user = JSON.parse(localStorage.getItem("currentUser"));
   const token = localStorage.getItem("token");
@@ -75,10 +73,10 @@ document.addEventListener("DOMContentLoaded", async function () {
           }[booking.status] || "Không rõ";
 
         item.innerHTML = `
-          <div class="booking-service">${booking.serviceType}</div>
+          <div class="booking-service">${booking.serviceType || booking.service}</div>
           <div class="booking-date">Ngày: ${formatDate(
-            booking.appointmentDate
-          )} | ${booking.appointmentTime}</div>
+            booking.appointmentDate || booking.appointment_date
+          )} | ${booking.appointmentTime || booking.appointment_time}</div>
           <span class="booking-status ${statusClass}">${statusText}</span>
         `;
         bookingList.appendChild(item);
@@ -106,17 +104,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     window.location.href = "edit-profile.html";
   });
 
-  // === MENU MOBILE ===
-  const navToggle = document.getElementById("navToggle");
-  const navMenu = document.getElementById("navMenu");
-  if (navToggle && navMenu) {
-    navToggle.addEventListener("click", () =>
-      navMenu.classList.toggle("active")
-    );
-    navMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => navMenu.classList.remove("active"));
-    });
-  }
+  // === MENU MOBILE (Đã chuyển sang script.js) ===
+  // const navToggle = document.getElementById("navToggle");
+  // const navMenu = document.getElementById("navMenu");
+  // if (navToggle && navMenu) {
+  //   navToggle.addEventListener("click", () =>
+  //     navMenu.classList.toggle("active")
+  //   );
+  //   navMenu.querySelectorAll("a").forEach((link) => {
+  //     link.addEventListener("click", () => navMenu.classList.remove("active"));
+  //   });
+  // }
 });
 
 // === HỖ TRỢ ===
