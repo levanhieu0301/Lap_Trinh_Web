@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../css/profile.css" />
   </head>
   <body>
-    <!-- ==================== HEADER + NAV ==================== -->
     <header class="header">
       <nav class="navbar">
         <div class="nav-brand">
@@ -32,16 +31,13 @@
       </nav>
     </header>
 
-    <!-- ==================== MAIN CONTENT ==================== -->
     <main class="main-content">
       <div class="profile-container profile-grid">
-        <!-- Tiêu đề -->
         <div class="profile-header">
           <h2>Hồ sơ cá nhân</h2>
           <p>Quản lý thông tin và lịch sử đặt dịch vụ</p>
         </div>
 
-        <!-- Thông tin cá nhân -->
         <div class="profile-info">
           <div class="info-item">
             <span class="label">Họ và tên:</span>
@@ -56,7 +52,6 @@
             <span id="userPhone" class="value">Đang tải...</span>
           </div>
 
-          <!-- Nút hành động -->
           <div class="profile-actions">
             <button id="editProfileBtn" class="btn btn-outline">
               Chỉnh sửa hồ sơ
@@ -65,17 +60,16 @@
           </div>
         </div>
 
-        <!-- Lịch sử đặt lịch -->
         <div class="profile-history">
           <h3>Lịch sử đặt dịch vụ</h3>
           <div id="bookingList" class="booking-list">
-            <!-- Dữ liệu sẽ được JS thêm vào -->
-          </div>
-          <p id="noBooking" class="no-data">Chưa có lịch đặt nào.</p>
+            </div>
+          <p id="noBooking" class="no-data">Đang tải lịch sử...</p>
         </div>
       </div>
     </main>
 
+    <script src="../js/config.js"></script>
     <script src="../js/profile.js"></script>
   </body>
 </html>

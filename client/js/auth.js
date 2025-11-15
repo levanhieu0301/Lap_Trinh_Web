@@ -1,5 +1,4 @@
 // frontend/js/auth.js
-const API_URL = "http://localhost:5000/api"; // ĐÚNG VỚI BACKEND
 
 document.addEventListener("DOMContentLoaded", () => {
   // Tab chuyển đổi
@@ -13,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach((c) => c.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById(btn.dataset.tab + "Tab").classList.add("active");
+
+      // Xóa thông báo lỗi cũ khi chuyển tab
+      clearErrors();
     });
   });
 
@@ -22,11 +24,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (registerForm) registerForm.addEventListener("submit", handleRegister);
   if (loginForm) loginForm.addEventListener("submit", handleLogin);
+
+  // Xóa lỗi khi người dùng bắt đầu nhập
+  loginForm
+    ?.querySelectorAll("input")
+    .forEach((input) =>
+      input.addEventListener("input", () => clearErrors())
+    );
+  registerForm
+    ?.querySelectorAll("input")
+    .forEach((input) =>
+      input.addEventListener("input", () => clearErrors())
+    );
 });
 
 // === HÀM ĐĂNG KÝ ===
 async function handleRegister(e) {
   e.preventDefault();
+  clearErrors();
+
   const formData = new FormData(e.target);
   const data = {
     name: formData.get("name"),
@@ -36,9 +52,14 @@ async function handleRegister(e) {
     confirmPassword: formData.get("confirmPassword"),
   };
 
-  // Kiểm tra mật khẩu khớp
+  // Kiểm tra mật khẩu khớp (client-side)
   if (data.password !== data.confirmPassword) {
-    alert("Mật khẩu không khớp!");
+    showRegisterError("Mật khẩu không khớp!");
+    return;
+  }
+  
+  if (data.password.length < 6) {
+    showRegisterError("Mật khẩu phải có ít nhất 6 ký tự!");
     return;
   }
 
@@ -52,25 +73,31 @@ async function handleRegister(e) {
     const json = await res.json();
 
     if (res.ok) {
-      alert("Đăng ký thành công! Vui lòng đăng nhập.");
-      document.querySelector('[data-tab="login"]').click();
-      e.target.reset(); // Xóa form
+      showRegisterSuccess("Đăng ký thành công! Vui lòng đăng nhập.");
+      // Tự động chuyển tab
+      setTimeout(() => {
+        document.querySelector('[data-tab="login"]').click();
+        e.target.reset(); // Xóa form
+      }, 1500);
     } else {
-      alert(json.error || "Lỗi đăng ký");
+      // Hiển thị lỗi từ server
+      showRegisterError(json.error || "Lỗi đăng ký");
     }
   } catch (err) {
-    alert("Không kết nối được đến server. Kiểm tra backend!");
+    showRegisterError("Không kết nối được đến server. Vui lòng thử lại.");
   }
 }
 
 // === HÀM ĐĂNG NHẬP ===
 async function handleLogin(e) {
   e.preventDefault();
+  clearErrors();
+
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
 
   if (!email || !password) {
-    alert("Vui lòng nhập đầy đủ email và mật khẩu!");
+    showLoginError("Vui lòng nhập đầy đủ email và mật khẩu!");
     return;
   }
 
@@ -95,9 +122,52 @@ async function handleLogin(e) {
         window.location.href = "profile.html";
       }
     } else {
-      alert(json.error || "Sai email hoặc mật khẩu");
+      // Hiển thị lỗi từ server
+      showLoginError(json.error || "Sai email hoặc mật khẩu");
     }
   } catch (err) {
-    alert("Không kết nối được đến server. Kiểm tra backend!");
+    showLoginError("Không kết nối được đến server. Vui lòng thử lại.");
   }
+}
+
+// --- Hàm hỗ trợ hiển thị lỗi ---
+
+function showLoginError(message) {
+  const errorDiv = document.getElementById("loginError");
+  if (errorDiv) {
+    errorDiv.textContent = message;
+    errorDiv.style.display = "block";
+  }
+}
+
+function showRegisterError(message) {
+  const msgDiv = document.getElementById("registerSuccess");
+  if (msgDiv) {
+    msgDiv.textContent = message;
+    msgDiv.className = "error-message"; // Đổi class để CSS (bạn cần định nghĩa class này)
+    msgDiv.style.color = "var(--error)"; // Ghi đè style
+    msgDiv.style.background = "var(--bg-light)";
+    msgDiv.style.border = "1px solid var(--error)";
+    msgDiv.style.display = "block";
+  }
+}
+
+function showRegisterSuccess(message) {
+  const msgDiv = document.getElementById("registerSuccess");
+  if (msgDiv) {
+    msgDiv.textContent = message;
+    msgDiv.className = "success-message"; // Trả lại class success
+    // Reset style
+    msgDiv.style.color = "";
+    msgDiv.style.background = "";
+    msgDiv.style.border = "";
+    msgDiv.style.display = "block";
+  }
+}
+
+function clearErrors() {
+  const loginError = document.getElementById("loginError");
+  const registerMsg = document.getElementById("registerSuccess");
+  if (loginError) loginError.style.display = "none";
+  if (registerMsg) registerMsg.style.display = "none";
 }

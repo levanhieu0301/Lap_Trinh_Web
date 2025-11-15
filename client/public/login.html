@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../css/auth.css" />
   </head>
   <body>
-    <!-- ==================== HEADER + NAV ==================== -->
     <header class="header">
       <nav class="navbar">
         <div class="nav-brand">
@@ -34,16 +33,13 @@
       </nav>
     </header>
 
-    <!-- ==================== MAIN CONTENT ==================== -->
     <main class="main-content">
       <div class="auth-container">
-        <!-- Tabs -->
         <div class="auth-tabs">
           <button class="tab-btn active" data-tab="login">Đăng nhập</button>
           <button class="tab-btn" data-tab="register">Đăng ký</button>
         </div>
 
-        <!-- ==================== ĐĂNG NHẬP ==================== -->
         <div id="loginTab" class="auth-tab-content active">
           <h2>Chào mừng trở lại!</h2>
           <form id="loginForm" class="auth-form" novalidate>
@@ -78,7 +74,6 @@
           </form>
         </div>
 
-        <!-- ==================== ĐĂNG KÝ ==================== -->
         <div id="registerTab" class="auth-tab-content">
           <h2>Tạo tài khoản mới</h2>
           <form
@@ -86,7 +81,6 @@
             class="auth-form register-form-horizontal"
             novalidate
           >
-            <!-- DÒNG 1: Họ tên + Email -->
             <div class="form-row">
               <div class="form-group">
                 <label>Họ và tên <span class="required">*</span></label>
@@ -112,7 +106,6 @@
               </div>
             </div>
 
-            <!-- DÒNG 2: Số điện thoại + Mật khẩu -->
             <div class="form-row">
               <div class="form-group">
                 <label>Số điện thoại <span class="required">*</span></label>
@@ -138,7 +131,6 @@
               </div>
             </div>
 
-            <!-- DÒNG 3: Nhập lại mật khẩu -->
             <div class="form-group full-width">
               <label>Nhập lại mật khẩu <span class="required">*</span></label>
               <input
@@ -166,7 +158,7 @@
       </div>
     </main>
 
-    <!-- ==================== JS ==================== -->
+    <script src="../js/config.js"></script>
     <script src="../js/auth.js"></script>
   </body>
 </html>
